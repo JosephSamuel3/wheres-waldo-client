@@ -1,0 +1,12 @@
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, 'Segoe UI', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}

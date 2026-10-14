@@ -1,1 +1,198 @@
+:root {
+  color: #f7f7f7;
+  background: #101827;
+  font-family: Inter, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.25), transparent 30%),
+    linear-gradient(135deg, #0f172a 0%, #111827 45%, #1f2937 100%);
+}
+
+button,
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.menu-panel {
+  width: min(1100px, 100%);
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.45);
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.menu-kicker {
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.menu-header h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.3rem);
+  line-height: 1;
+}
+
+.menu-instructions {
+  margin: 0.9rem auto 0;
+  max-width: 36rem;
+  color: #dfe7f5;
+  font-size: 1.05rem;
+}
+
+.menu-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  gap: 1.5rem;
+}
+
+.difficulty-panel,
+.preview-panel {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  padding: 1.4rem;
+}
+
+.difficulty-panel h2,
+.preview-panel h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.difficulty-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.difficulty-option {
+  width: 100%;
+  text-align: left;
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1rem 1rem;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.difficulty-option:hover,
+.difficulty-option:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(125, 211, 252, 0.8);
+  box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.2);
+  outline: none;
+}
+
+.difficulty-option.selected {
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.8), rgba(59, 130, 246, 0.8));
+  border-color: rgba(125, 211, 252, 0.9);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+}
+
+.difficulty-name {
+  display: block;
+  font-weight: 700;
+  font-size: 1.12rem;
+  margin-bottom: 0.3rem;
+}
+
+.difficulty-description {
+  display: block;
+  color: #dbeafe;
+  font-size: 0.9rem;
+}
+
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.scene-preview {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: #0b1120;
+}
+
+.start-section {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.start-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  color: #111827;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 14px 28px rgba(249, 115, 22, 0.28);
+}
+
+.start-button:hover,
+.start-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 34px rgba(249, 115, 22, 0.34);
+  outline: none;
+}
+
+.status-message {
+  margin: 0.85rem 0 0;
+  min-height: 1.5rem;
+  color: #dbeafe;
+}
+
+@media (max-width: 760px) {
+  .menu-panel {
+    padding: 1.25rem;
+  }
+
+  .menu-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    padding: 1rem;
+  }
+}
