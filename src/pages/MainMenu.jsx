@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import difficulties from '../data/difficulties'
 
-export default function MainMenu() {
+export default function MainMenu({ onStart }) {
   const [selectedDifficultyId, setSelectedDifficultyId] = useState('easy')
   const [statusMessage, setStatusMessage] = useState(
-    'Demo mode: the game screen is not ready yet.'
+    'Choose a difficulty, then start the game.'
   )
 
   const selectedDifficulty = useMemo(
@@ -13,12 +13,6 @@ export default function MainMenu() {
       difficulties[0],
     [selectedDifficultyId]
   )
-
-  const handleStart = () => {
-    setStatusMessage(
-      `Start selected: ${selectedDifficulty.label}. The full game screen will launch in a later task.`
-    )
-  }
 
   return (
     <section className="menu-panel" aria-labelledby="menu-title">
@@ -71,7 +65,11 @@ export default function MainMenu() {
       </div>
 
       <div className="start-section">
-        <button type="button" className="start-button" onClick={handleStart}>
+        <button
+          type="button"
+          className="start-button"
+          onClick={() => onStart(selectedDifficulty)}
+        >
           Start
         </button>
         <p className="status-message" aria-live="polite">

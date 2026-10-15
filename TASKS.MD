@@ -1,111 +1,45 @@
-# Where's Waldo — Main Menu Implementation Plan
+# Today's Goal
+Make the application transition from the Main Menu to the Game Screen
+when the player clicks Start.
 
-## Goal
+Keep this session focused on the screen transition and the minimum
+structure needed to make it work. We do not need to build the full
+Where's Waldo gameplay yet.
 
-Build the first version of the main menu using React. Players should be able to select a difficulty, preview the associated image, and start a game.
+## Tasks
+1. Review the Current App Structure
+- [x] Review App.jsx (or the component that currently renders
+  MainMenu).
+- [x] Identify where the selected difficulty is stored.
+- [x] Trace what currently happens when the player clicks Start.
 
-## 1. Tasks for This Session
+2. Decide How the Screen Is Controlled
+- [x] Choose a simple way to track which screen should be displayed,
+  such as an activeScreen state in App.
+- [x] Decide how the Start action will tell the parent component to
+  switch screens.
+- [x] Keep the solution simple; do not introduce routing unless the
+  current project structure requires it.
 
-- [x] Create a `MainMenu` component.
-- [x] Display the game title and a short instruction.
-- [x] Add three difficulty options: Easy, Medium, and Hard.
-- [x] Associate one image with each difficulty.
-- [x] Allow the player to select a difficulty.
-- [x] Visually indicate the selected difficulty.
-- [x] Display a preview of the selected image.
-- [x] Add a Start button.
-- [x] Verify that the layout works in the browser.
+3. Implement the Menu-to-Game Transition
+- [x] Pass a callback from the parent component to MainMenu.
+- [x] Call that callback when the player clicks Start.
+- [x] Store the selected difficulty when starting the game, so the
+  game screen knows which difficulty was chosen.
+- [x] Render the Game Screen instead of the Main Menu after starting.
 
-## 2. Component Responsibilities
+4. Create a Minimal Game Screen
+- [x] Create a GameScreen component if one does not already exist.
+- [x] Display a clear heading or placeholder that confirms the game
+  screen is active.
+- [x] Display the selected difficulty to verify that the selection was
+  carried over correctly.
+- [x] Avoid implementing image-click detection, timers, target
+  tracking, or win conditions in this session.
 
-### `App`
-
-- Initially render `MainMenu`.
-- Later, manage the transition between the main menu and `GameScreen`.
-- Keep application-level responsibilities separate from menu-specific logic.
-
-### `MainMenu`
-
-- Display the title, instructions, difficulty options, image preview, and Start button.
-- Track the selected difficulty using React state.
-- Update the selected styling and image preview when the difficulty changes.
-- Handle the Start button interaction.
-
-### Difficulty Data
-
-Keep the difficulty configuration organized. If separating it into a data file improves readability, create `src/data/difficulties.js`.
-
-Each difficulty should eventually contain:
-- A stable ID.
-- A display name.
-- An image source.
-- A reference to its game configuration or targets.
-
-## 3. Proposed User Flow
-
-1. The player opens the application.
-2. The main menu appears.
-3. Easy is selected by default.
-4. The player chooses Easy, Medium, or Hard.
-5. The selected difficulty is visually highlighted.
-6. The corresponding image preview updates.
-7. The player clicks Start.
-8. The application will eventually transition to `GameScreen`.
-
-## 4. State and Interaction Decisions
-
-- [x] Store the selected difficulty in React state.
-- [x] Use stable IDs such as `"easy"`, `"medium"`, and `"hard"`.
-- [x] Changing difficulty must not start the game.
-- [x] The timer will begin only when the game actually starts.
-- [x] If `GameScreen` is not implemented yet, make the Start button's temporary behavior clear rather than pretending a game has started.
-
-## 5. Layout and Accessibility
-
-- [x] Make the game title prominent.
-- [x] Make difficulty options easy to distinguish.
-- [x] Clearly indicate the selected difficulty.
-- [x] Ensure the image preview corresponds to the selected difficulty.
-- [x] Make the Start button easy to find.
-- [x] Ensure the layout works on narrower screens.
-- [x] Use semantic HTML and accessible labels.
-- [x] Provide meaningful alternative text for images.
-
-## 6. Out of Scope
-
-Do not implement these features during this session:
-
-- Login or sign-up.
-- Multiple images per difficulty.
-- Game timer.
-- Character detection or click validation.
-- Victory screen.
-- High scores or leaderboard.
-- Backend or database.
-
-## 7. Completion Criteria
-
-- [x] `MainMenu` renders without errors.
-- [x] All three difficulty options work.
-- [x] Selecting a difficulty updates the selection styling and image preview.
-- [x] The Start button is present and its current behavior is clear.
-- [x] The application runs locally without errors.
-- [x] Changes are committed to Git.
-
-## 8. Decisions to Make During Implementation
-
-- [x] Choose images suitable for a public portfolio project and verify their usage rights.
-- [x] Decide whether difficulty options should be buttons, radio inputs, or selectable cards.
-- [x] Decide whether the image preview should be a thumbnail or a larger preview card.
-
-## Session Notes
-
-Build incrementally:
-1. Create the static layout.
-2. Verify the layout in the browser.
-3. Add difficulty-selection state.
-4. Connect the selected difficulty to the image preview.
-5. Add the Start button.
-6. Test the interactions and commit the work.
-
-Keep the implementation simple. Avoid introducing routing, authentication, backend infrastructure, or game mechanics before the main menu works.
+5. Test the Transition
+- [x] The app initially displays the Main Menu.
+- [x] Changing the difficulty updates the selected option and preview.
+- [x] Clicking Start switches to the Game Screen.
+- [x] The Game Screen displays the difficulty that was selected.
+- [x] No console errors appear during the transition.
