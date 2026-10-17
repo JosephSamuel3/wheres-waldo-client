@@ -152,6 +152,41 @@ button {
   background: #0b1120;
 }
 
+.game-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.7fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.target-list {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  padding: 1.4rem;
+}
+
+.target-list h2 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+}
+
+.target-list-items {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.target-list-items li {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  color: #f8fafc;
+}
+
 .start-section {
   text-align: center;
   margin-top: 1.5rem;
@@ -189,6 +224,10 @@ button {
   }
 
   .menu-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .game-content {
     grid-template-columns: 1fr;
   }
 
