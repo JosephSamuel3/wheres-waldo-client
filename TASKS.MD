@@ -1,22 +1,56 @@
 # Today's Goal
-The menu and basic screen transition are in place. My next focus is moving from a static game layout toward an interactive game. Today's goals are:
-- Expand data/targets.js from simple character names into richer target objects.
-- Introduce found-target state owned by GameScreen.
-- Pass that state down to TargetList so found characters can be marked accordingly.
+Today's session will focus on implementing actual game interactions
+- Prepare the target data — plan how to store each character's coordinates for each difficulty.
+- Capture image clicks — learn how to obtain the player's click position.
+- Connect child to parent — pass a callback from GameScreen to GameScene.
+- Validate selections — determine whether a click correctly identifies a character.
+- Update the target list — add correctly identified characters to found and display their checkmarks.
 
 ## Tasks
 
-1. Expand data/targets.js 
-- [x] Change targetest value from and array of strings to an array of object 
-- [x] Make each object have an id and name (image, and coordinates will come later).
+1. Plan for click interaction (basic flow)
+- Player clicks the image.
+- GameScene captures clicks
+- Callback prop passes the click information to GameScreen
+- GameScreen validates the click
+- Checks the target location and updates found
+- TargetList updates — Displays which characters have been found
 
-2. Update my TargetList.jsx to render targets
-- [x] Use the character's ID as the React key 
-- [x] Display the character's name
+2. First test out click event functionality
+- [x] Pass onSceneClick to GameScene
+- [x] Create handleClick function
+- [x] For now the function logs the click event
+- [x] Pass handleClick as a prop to GameScene
+- [x] Then test if it works
 
-3. Implement found state management (GameScreen manages the found State of my game)
-- [x] In GameScreen import useState and initialize found state variable to an empty array
-- [x] Pass found as a prop to TargetList (this is for UI changes)
-- [x] Inside .map() callback, check weather the current target's ID exists in found 
-- [x] Implement the basic condition for checking if target is found (this is a place holder)
+
+3. coordination normalization for target data
+- [x] Get the image demension set it to rect
+- [x] Using rect find the top, left, width, and height of the image
+- [x] Next normalize x by (event.clientX - rect.left) / rect.width
+- [x] Next normalize y by (event.clientX - rect.top) / rect.height
+- [x] Test to see if it works
+- [x] Then find the coordinates of all easy targets for now.
+
+4. Implement target validation
+- [x] Receive the click coordinates from GameScene.
+- [x] Loop through the targets for the selected difficulty.
+- [x] Compare the click coordinates against each target's saved coordinates.
+- [x] Check whether the click falls within an acceptable tolerance.
+- [x] If a target matches and hasn't already been found, add its ID to found, and log found
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -145,8 +145,7 @@ button {
 
 .scene-preview {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
   border-radius: 14px;
   border: 1px solid rgba(148, 163, 184, 0.22);
   background: #0b1120;

@@ -4,23 +4,38 @@ const targets = {
   easy: [
     {
       id: 'waldo',
-      name: 'Waldo'
+      name: 'Waldo',
+      x: 0.854,
+      y: 0.742,
+      radius: 0.02
     },
     {
       id: 'wenda',
-      name: 'Wenda'
+      name: 'Wenda',
+      x: 0.488,
+      y: 0.425,
+      radius: 0.02
     },
     {
       id: 'odlaw',
-      name: 'Odlaw'
+      name: 'Odlaw',
+      x: 0.318,
+      y: 0.640,
+      radius: 0.02
     },
     {
       id: 'wizard',
-      name: 'Wizard'
+      name: 'Wizard',
+      x: 0.069,
+      y: 0.760,
+      radius: 0.02
     },
     {
       id: 'woof',
-      name: 'Woof'
+      name: 'Woof',
+      x: 0.298,
+      y: 0.717,
+      radius: 0.02
     }
   ],
   medium: [
