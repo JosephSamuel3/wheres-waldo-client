@@ -2,11 +2,25 @@ import GameHeader from "../components/GameHeader"
 import GameScene from "../components/GameScene"
 import TargetList from "../components/TargetList"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import targets from "../data/targets"
 
 export default function GameScreen({ difficulty }) {
   const [found, setFound] = useState([])
+  const [startTime] = useState(() => Date.now())
+  const [elapsedTime, setElapsedTime] = useState(0)
+
+  const isComplete = found.length === targets[difficulty.id].length
+
+  useEffect(() => {
+    if (isComplete) return
+
+    const timerId = setInterval(() => {
+      setElapsedTime(Math.floor((Date.now() - startTime) / 1000))
+    }, 250)
+
+    return () => clearInterval(timerId)
+  }, [isComplete, startTime])
 
   const handleClicks = (event) => {
     const rect = event.currentTarget.getBoundingClientRect()
@@ -33,12 +47,12 @@ export default function GameScreen({ difficulty }) {
   
   return (
     <section className="menu-panel game-panel" aria-labelledby="game-title">
-      <GameHeader difficulty={difficulty}/>
+      <GameHeader difficulty={difficulty} elapsedTime={elapsedTime} />
       <div className="game-content">
         <GameScene 
           difficulty={difficulty}
           onSceneClick={handleClicks}
-        />
+          />
         <TargetList difficulty={difficulty} found={found}/>
       </div>
     </section>

@@ -41,45 +41,75 @@ const targets = {
   medium: [
     {
       id: 'waldo',
-      name: 'Waldo'
+      name: 'Waldo',
+      x: 0.617,
+      y: 0.388,
+      radius: 0.015
     },
     {
       id: 'wenda',
-      name: 'Wenda'
+      name: 'Wenda',
+      x: 0.772,
+      y: 0.411,
+      radius: 0.015
     },
     {
       id: 'odlaw',
-      name: 'Odlaw'
+      name: 'Odlaw',
+      x: 0.106,
+      y: 0.365,
+      radius: 0.015
     },
     {
       id: 'wizard',
-      name: 'Wizard'
+      name: 'Wizard',
+      x: 0.269,
+      y: 0.363,
+      radius: 0.015
     },
     {
       id: 'woof',
-      name: 'Woof'
+      name: 'Woof',
+      x: 0.683,
+      y: 0.372,
+      radius: 0.015
     }
   ],
   hard: [
     {
       id: 'waldo',
-      name: 'Waldo'
+      name: 'Waldo',
+      x: 0.403,
+      y: 0.631,
+      radius: 0.015
     },
     {
       id: 'wenda',
-      name: 'Wenda'
+      name: 'Wenda',
+      x: 0.295,
+      y: 0.528,
+      radius: 0.015
     },
     {
       id: 'odlaw',
-      name: 'Odlaw'
+      name: 'Odlaw',
+      x: 0.070,
+      y: 0.694,
+      radius: 0.015
     },
     {
       id: 'wizard',
-      name: 'Wizard'
+      name: 'Wizard',
+      x: 0.780,
+      y: 0.582,
+      radius: 0.015
     },
     {
       id: 'woof',
-      name: 'Woof'
+      name: 'Woof',
+      x: 0.591,
+      y: 0.903,
+      radius: 0.015
     }
   ],
 }
